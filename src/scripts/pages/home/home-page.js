@@ -21,6 +21,7 @@ export default class HomePage {
     const storiesContainer = document.querySelector('#storiesList');
     const token = localStorage.getItem('token');
 
+    // Buat map
     const map = L.map('map').setView([-6.200000, 106.816666], 5);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; OpenStreetMap contributors',
@@ -92,12 +93,20 @@ export default class HomePage {
         }
       });
 
+      // Buat icon kustom
+      const locationIcon = L.icon({
+        iconUrl: '/images/Location.png',
+        iconSize: [32, 32],
+        iconAnchor: [16, 32],
+        popupAnchor: [0, -32],
+      });
+
       // Tambahkan marker di map
       stories.forEach((story) => {
         const lat = parseFloat(story.lat);
         const lon = parseFloat(story.lon);
         if (!isNaN(lat) && !isNaN(lon)) {
-          const marker = L.marker([lat, lon]).addTo(map);
+          const marker = L.marker([lat, lon], { icon: locationIcon }).addTo(map);
           marker.bindPopup(`
             <strong>${story.name}</strong><br />
             ${story.description}<br />

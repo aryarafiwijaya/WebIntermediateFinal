@@ -50,6 +50,14 @@ export default class AddStoryPage {
       attribution: '&copy; OpenStreetMap contributors',
     }).addTo(map);
 
+    // Buat icon kustom Location.png
+    const locationIcon = L.icon({
+      iconUrl: '/images/Location.png',
+      iconSize: [32, 32],
+      iconAnchor: [16, 32],
+      popupAnchor: [0, -32],
+    });
+
     let marker = null;
 
     map.on('click', (e) => {
@@ -58,7 +66,7 @@ export default class AddStoryPage {
       document.querySelector('#lon').value = lng.toFixed(6);
 
       if (marker) map.removeLayer(marker);
-      marker = L.marker([lat, lng]).addTo(map);
+      marker = L.marker([lat, lng], { icon: locationIcon }).addTo(map);
     });
 
     addStoryForm.addEventListener('submit', async (event) => {

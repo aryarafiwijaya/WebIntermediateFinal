@@ -56,8 +56,16 @@ export default class DetailPage {
         attribution: '&copy; OpenStreetMap contributors',
       }).addTo(map);
 
+      // Buat icon kustom Location.png
+      const locationIcon = L.icon({
+        iconUrl: '/images/Location.png',
+        iconSize: [32, 32],      // ukuran icon
+        iconAnchor: [16, 32],    // titik anchor icon
+        popupAnchor: [0, -32],   // titik popup
+      });
+
       if (!isNaN(parseFloat(lat)) && !isNaN(parseFloat(lon))) {
-        const marker = L.marker([lat, lon]).addTo(map);
+        const marker = L.marker([lat, lon], { icon: locationIcon }).addTo(map);
         marker.bindPopup(`
           <strong>${name}</strong><br/>
           ${description}
