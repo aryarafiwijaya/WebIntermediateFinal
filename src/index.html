@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="/favicon.png" />
+    <link rel="manifest" href="/manifest.json">
+    <title>Story App</title>
+    <link rel="stylesheet" href="/styles/styles.css" />
+    <script type="module" src="/scripts/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <style>
+      #installButton {
+        position: fixed;
+        bottom: 1.5rem;
+        right: 1.5rem;
+        background-color: #2563eb;
+        color: white;
+        border: none;
+        padding: 12px 18px;
+        border-radius: 10px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        display: none;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+        transition: transform 0.2s, background-color 0.2s;
+        z-index: 9999;
+      }
+
+      #installButton:hover {
+        background-color: #1e40af;
+        transform: scale(1.05);
+      }
+    </style>
+  </head>
+
+  <body>
+    <header id="appBar" class="app-bar"></header>
+
+    <main id="main-content" class="main-content container"></main>
+
+    <footer class="footer">
+      <p>&copy; 2025 Story App by Arya</p>
+    </footer>
+
+    <button id="installButton">Install Aplikasi</button>
+  </body>
+</html>
